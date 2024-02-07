@@ -23,13 +23,27 @@
 
     .message {
       font-size: 24px;
+      top: 20%;
+      left: 50%;
       cursor: pointer;
-      position: relative;
-      top: -20vh; /* 使文本约在屏幕上的2/5位置 */
+      position: absolute;
+    }
+    .button-background {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-70%, -70%);
+      padding: 20px 70px;
+      background-color: rgba(255, 255, 255, 0.5); /* 半透明的白色背景 */
+      border-radius: 20px; /* 圆角 */
+      /*z-index: 0;*/
     }
   </style>
 </head>
 <body>
-<div class="message" onclick="location.href='main.html';">新年快乐~</div>
+<div class="message-container">
+  <div class="message" onclick="location.href='index.html';">新年快乐~</div>
+  <div class="button-background"></div>
+</div>
 </body>
 </html>
