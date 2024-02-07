@@ -62,6 +62,12 @@ const COLOR = {
 	Purple: "#e60aff",
 	Gold: "#ffbf36",
 	White: "#ffffff",
+	Turquoise1: "#00F5FF",
+	SpringGreen1: "#00FF7F",
+	OliveDrab1: "#C0FF3E",
+	Yellow: "#FFFF00",
+	Sienna2: "#EE7942",
+	Ivory1: "Ivory1"
 };
 
 //特殊的不可见颜色(未呈现，因此不在颜色贴图中)
@@ -76,7 +82,7 @@ const mainStage = new Stage("main-canvas");
 const stages = [trailsStage, mainStage];
 
 //随机文字烟花内容
-const randomWords = ["😘", "(❁´◡`❁)"];
+const randomWords = ["(❁´◡`❁)","新年快乐", "心想事成", "憨态可掬", "龙年快乐"];
 const wordDotsMap = {};
 randomWords.forEach((word) => {
 	wordDotsMap[word] = MyMath.literalLattice(word, 3, "Gabriola,华文琥珀", "90px");
@@ -137,7 +143,7 @@ const store = {
 				? "1.2" //配置文件头默认值(不必是int)
 				: "2", //手机默认
 			wordShell: true, //文字烟花 默认为开启 若不开启可修改为false
-			autoLaunch: true, //自动发射烟花
+			autoLaunch: false, //自动发射烟花
 			finale: true, //同时放更多烟花
 			skyLighting: SKY_LIGHT_NORMAL + "",
 			hideControls: IS_HEADER,
