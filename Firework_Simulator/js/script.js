@@ -1481,7 +1481,9 @@ function colorSky(speed) {
 	currentSkyColor.g += ((targetSkyColor.g - currentSkyColor.g) / colorChange) * speed;
 	currentSkyColor.b += ((targetSkyColor.b - currentSkyColor.b) / colorChange) * speed;
 
-	appNodes.canvasContainer.style.backgroundColor = `rgb(${currentSkyColor.r | 0}, ${currentSkyColor.g | 0}, ${currentSkyColor.b | 0})`;
+	// appNodes.canvasContainer.style.backgroundColor = `rgb(${currentSkyColor.r | 0}, ${currentSkyColor.g | 0}, ${currentSkyColor.b | 0})`;
+	appNodes.canvasContainer.style.backgroundImage = `url(${"./Firework_Simulator/images/night-sky.jpg"})`;
+
 }
 
 mainStage.addEventListener("ticker", update);
@@ -2216,7 +2218,7 @@ const Spark = {
 
 //音效管理器
 const soundManager = {
-	baseURL: "./audio/",
+	baseURL: "./Firework_Simulator/audio/",
 	ctx: new (window.AudioContext || window.webkitAudioContext)(),
 	sources: {
 		lift: {
