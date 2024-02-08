@@ -67,7 +67,13 @@ const COLOR = {
 	OliveDrab1: "#C0FF3E",
 	Yellow: "#FFFF00",
 	Sienna2: "#EE7942",
-	Ivory1: "Ivory1"
+	OrangeRed: "#FF4500",
+	Firebrick2: "#EE2C2C",
+	Magenta: "#FF00FF",
+	AntiqueWhite1: "#FFEFDB",
+	Seashell1: "#FFF5EE",
+	Snow1: "#FFFAFA",
+	DeepSkyBlue1: "#00BFFF"
 };
 
 //特殊的不可见颜色(未呈现，因此不在颜色贴图中)
@@ -82,7 +88,8 @@ const mainStage = new Stage("main-canvas");
 const stages = [trailsStage, mainStage];
 
 //随机文字烟花内容
-const randomWords = ["(❁´◡`❁)","万事如意", "心想事成", "憨态可掬", "龙年快乐", "Dobby, always Dobby"];
+const randomWords = ["(❁´◡`❁)","万事如意", "心想事成", "憨态可掬", "龙年快乐", "Dobby, always Dobby", "平安喜乐", "星河长明",
+"平安喜乐", "万象更新", "山河无恙", "喜乐如常", "阳光满路", "温暖如初"];
 const wordDotsMap = {};
 randomWords.forEach((word) => {
 	wordDotsMap[word] = MyMath.literalLattice(word, 3, "Gabriola,华文琥珀", "90px");
