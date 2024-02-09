@@ -16,10 +16,19 @@
 		<link rel="stylesheet" href="./Firework_Simulator/css/style.css" />
 	</head>
 	<body>
-	<audio controls="controls" autoplay="autoplay" controls="controls" hidden="hidden">
+	<audio controls="controls" autoplay="autoplay" controls="controls" hidden="hidden" loop="loop" id="music">
 		<source src="./Firework_Simulator/audio/Nice-to-Meet-You.ogg" type="audio/ogg">
 		<embed height="50px" width="100px" src="./Firework_Simulator/audio/Nice-to-Meet-You.ogg">
 	</audio>
+
+	<script>
+		// 将以下代码添加到js入口函数内即可
+		// 这里使用了微信自带的WeixinJSBridgeReady事件
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			document.getElementById('music').play()
+		})
+
+	</script>
 
 
 <!--	<audio controls autoplay loop >-->
