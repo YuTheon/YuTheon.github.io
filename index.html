@@ -20,7 +20,7 @@
         .container {
             position: relative;
             width: 100%;
-            height: 100px;
+            height: 150px;
             overflow: hidden;
         }
         
@@ -29,54 +29,67 @@
             display: flex;
             align-items: center;
             white-space: nowrap;
-            font-size: 24px;
             font-weight: bold;
-            color: #ff5252;
+            color: #ff3366;
         }
         
         .pig-image {
-            width: 60px;
-            height: 60px;
-            margin-right: 15px;
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            animation: pigWiggle 3s ease-in-out infinite;
+        }
+        
+        .character {
+            display: inline-block;
+            font-size: 36px;
+            animation: charShake 0.5s ease-in-out infinite;
+        }
+        
+        .character:nth-child(odd) {
+            animation-delay: 0.1s;
+        }
+        
+        .character:nth-child(even) {
+            animation-delay: 0.3s;
+        }
+        
+        .character:nth-child(3n) {
+            animation-delay: 0.2s;
         }
         
         @keyframes moveText {
             0% {
                 left: 100%;
-                transform: translateY(0);
             }
-            40% {
+            30% {
                 left: 50%;
-                transform: translateX(-50%) translateY(0);
+                transform: translateX(-50%);
             }
-            45% {
+            70% {
                 left: 50%;
-                transform: translateX(-50%) translateY(-5px);
-            }
-            50% {
-                left: 50%;
-                transform: translateX(-50%) translateY(5px);
-            }
-            55% {
-                left: 50%;
-                transform: translateX(-50%) translateY(-3px);
-            }
-            60% {
-                left: 50%;
-                transform: translateX(-50%) translateY(3px);
-            }
-            65% {
-                left: 50%;
-                transform: translateX(-50%) translateY(0);
+                transform: translateX(-50%);
             }
             100% {
                 left: -50%;
-                transform: translateY(0);
             }
         }
         
+        @keyframes charShake {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-5px); }
+            75% { transform: translateY(5px); }
+        }
+        
+        @keyframes pigWiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(5deg); }
+        }
+        
         .text-animation {
-            animation: moveText 5s ease-in-out infinite;
+            animation: moveText 8s ease-in-out infinite;
         }
     </style>
 </head>
@@ -84,34 +97,56 @@
     <div class="container">
         <div class="text-container text-animation">
             <svg class="pig-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- 猪的身体 -->
-                <ellipse cx="50" cy="60" rx="35" ry="30" fill="#ffb6c1"/>
+                <!-- 猪的身体 - 更圆润 -->
+                <ellipse cx="50" cy="60" rx="40" ry="32" fill="#ffb6c1"/>
                 
-                <!-- 猪的头 -->
-                <circle cx="50" cy="40" r="25" fill="#ffb6c1"/>
+                <!-- 猪的头 - 更圆 -->
+                <circle cx="50" cy="40" r="28" fill="#ffb6c1"/>
                 
-                <!-- 猪的耳朵 -->
-                <ellipse cx="30" cy="25" rx="10" ry="12" fill="#ffb6c1" transform="rotate(-20, 30, 25)"/>
-                <ellipse cx="70" cy="25" rx="10" ry="12" fill="#ffb6c1" transform="rotate(20, 70, 25)"/>
-                <ellipse cx="32" cy="27" rx="7" ry="9" fill="#ff9999" transform="rotate(-20, 32, 27)"/>
-                <ellipse cx="68" cy="27" rx="7" ry="9" fill="#ff9999" transform="rotate(20, 68, 27)"/>
+                <!-- 猪的耳朵 - 更大更圆 -->
+                <ellipse cx="28" cy="22" rx="12" ry="14" fill="#ffb6c1" transform="rotate(-20, 28, 22)"/>
+                <ellipse cx="72" cy="22" rx="12" ry="14" fill="#ffb6c1" transform="rotate(20, 72, 22)"/>
+                <ellipse cx="30" cy="24" rx="9" ry="11" fill="#ff9999" transform="rotate(-20, 30, 24)"/>
+                <ellipse cx="70" cy="24" rx="9" ry="11" fill="#ff9999" transform="rotate(20, 70, 24)"/>
                 
-                <!-- 猪的眼睛 -->
-                <circle cx="40" cy="38" r="4" fill="white"/>
-                <circle cx="60" cy="38" r="4" fill="white"/>
-                <circle cx="40" cy="38" r="2" fill="black"/>
-                <circle cx="60" cy="38" r="2" fill="black"/>
+                <!-- 猪的眼睛 - 更大且有光泽 -->
+                <circle cx="40" cy="35" r="6" fill="white"/>
+                <circle cx="60" cy="35" r="6" fill="white"/>
+                <circle cx="42" cy="34" r="3" fill="black"/>
+                <circle cx="62" cy="34" r="3" fill="black"/>
+                <circle cx="43" cy="33" r="1" fill="white"/>
+                <circle cx="63" cy="33" r="1" fill="white"/>
                 
-                <!-- 猪的鼻子 -->
-                <ellipse cx="50" cy="45" rx="10" ry="7" fill="#ff9999"/>
-                <circle cx="45" cy="45" r="2" fill="black"/>
-                <circle cx="55" cy="45" r="2" fill="black"/>
+                <!-- 猪的脸颊 - 添加腮红 -->
+                <circle cx="30" cy="42" r="7" fill="#ff8080" opacity="0.6"/>
+                <circle cx="70" cy="42" r="7" fill="#ff8080" opacity="0.6"/>
                 
-                <!-- 猪的腿 -->
-                <rect x="30" y="80" width="7" height="15" rx="3" fill="#ffb6c1"/>
-                <rect x="63" y="80" width="7" height="15" rx="3" fill="#ffb6c1"/>
+                <!-- 猪的鼻子 - 更可爱 -->
+                <ellipse cx="50" cy="45" rx="11" ry="8" fill="#ff7979"/>
+                <circle cx="45" cy="45" r="2.5" fill="black"/>
+                <circle cx="55" cy="45" r="2.5" fill="black"/>
+                
+                <!-- 猪的嘴 - 微笑 -->
+                <path d="M42,52 Q50,58 58,52" stroke="#ff6666" stroke-width="2" fill="none"/>
+                
+                <!-- 猪的腿 - 更短更可爱 -->
+                <rect x="30" y="82" width="8" height="10" rx="4" fill="#ffb6c1"/>
+                <rect x="62" y="82" width="8" height="10" rx="4" fill="#ffb6c1"/>
+                <rect x="30" y="82" width="8" height="5" rx="2" fill="#ff9999"/>
+                <rect x="62" y="82" width="8" height="5" rx="2" fill="#ff9999"/>
+                
+                <!-- 猪的尾巴 - 卷曲 -->
+                <path d="M85,65 Q95,60 90,55 Q85,50 90,45" stroke="#ffb6c1" stroke-width="5" fill="none"/>
             </svg>
-            <span>傻子，快来烦我</span>
+            <span>
+                <span class="character">傻</span>
+                <span class="character">子</span>
+                <span class="character">，</span>
+                <span class="character">快</span>
+                <span class="character">来</span>
+                <span class="character">烦</span>
+                <span class="character">我</span>
+            </span>
         </div>
     </div>
 </body>
