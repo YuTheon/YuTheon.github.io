@@ -1,61 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Year Greetings</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url('./Firework_Simulator/images/little_prince3.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .message {
-      font-size: 24px;
-      top: 22%;
-      left: 44%;
-      cursor: pointer;
-      position: absolute;
-    }
-    .button-background {
-      position: absolute;
-      top: 25%;
-      left: 50%;
-      transform: translate(-70%, -70%);
-      padding: 25px 120px;
-      background-color: rgba(255, 255, 255, 0.5); /* 半透明的白色背景 */
-      border-radius: 20px; /* 圆角 */
-      /*z-index: 0;*/
-    }
-    button {
-      background-color: rgba(255, 255, 255, 0.5); /* 半透明的白色背景 */
-      border-radius: 20px; /* 圆角 */
-      padding: 10px 20px;
-      font-size: 16px;
-      color: white;
-      cursor: pointer;
-      border: none; /* 移除边框 */
-    }
-
-    button:hover {
-      background-color: rgba(255, 255, 255, 0.7); /* 悬停时增加透明度 */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画文字</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9e7e7;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+        }
+        
+        .text-container {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff5252;
+        }
+        
+        .pig-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        @keyframes moveText {
+            0% {
+                left: 100%;
+                transform: translateY(0);
+            }
+            40% {
+                left: 50%;
+                transform: translateX(-50%) translateY(0);
+            }
+            45% {
+                left: 50%;
+                transform: translateX(-50%) translateY(-5px);
+            }
+            50% {
+                left: 50%;
+                transform: translateX(-50%) translateY(5px);
+            }
+            55% {
+                left: 50%;
+                transform: translateX(-50%) translateY(-3px);
+            }
+            60% {
+                left: 50%;
+                transform: translateX(-50%) translateY(3px);
+            }
+            65% {
+                left: 50%;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                left: -50%;
+                transform: translateY(0);
+            }
+        }
+        
+        .text-animation {
+            animation: moveText 5s ease-in-out infinite;
+        }
+    </style>
 </head>
 <body>
-<div class="message-container">
-  <button class="message" onclick="window.location.href='main.html';">新年快乐</button>
-</div>
+    <div class="container">
+        <div class="text-container text-animation">
+            <svg class="pig-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- 猪的身体 -->
+                <ellipse cx="50" cy="60" rx="35" ry="30" fill="#ffb6c1"/>
+                
+                <!-- 猪的头 -->
+                <circle cx="50" cy="40" r="25" fill="#ffb6c1"/>
+                
+                <!-- 猪的耳朵 -->
+                <ellipse cx="30" cy="25" rx="10" ry="12" fill="#ffb6c1" transform="rotate(-20, 30, 25)"/>
+                <ellipse cx="70" cy="25" rx="10" ry="12" fill="#ffb6c1" transform="rotate(20, 70, 25)"/>
+                <ellipse cx="32" cy="27" rx="7" ry="9" fill="#ff9999" transform="rotate(-20, 32, 27)"/>
+                <ellipse cx="68" cy="27" rx="7" ry="9" fill="#ff9999" transform="rotate(20, 68, 27)"/>
+                
+                <!-- 猪的眼睛 -->
+                <circle cx="40" cy="38" r="4" fill="white"/>
+                <circle cx="60" cy="38" r="4" fill="white"/>
+                <circle cx="40" cy="38" r="2" fill="black"/>
+                <circle cx="60" cy="38" r="2" fill="black"/>
+                
+                <!-- 猪的鼻子 -->
+                <ellipse cx="50" cy="45" rx="10" ry="7" fill="#ff9999"/>
+                <circle cx="45" cy="45" r="2" fill="black"/>
+                <circle cx="55" cy="45" r="2" fill="black"/>
+                
+                <!-- 猪的腿 -->
+                <rect x="30" y="80" width="7" height="15" rx="3" fill="#ffb6c1"/>
+                <rect x="63" y="80" width="7" height="15" rx="3" fill="#ffb6c1"/>
+            </svg>
+            <span>傻子，快来烦我</span>
+        </div>
+    </div>
 </body>
 </html>
